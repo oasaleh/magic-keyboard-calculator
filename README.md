@@ -1,1 +1,1 @@
-
+This is *The Simple Calculator*. To use it click [here](https://captaincustard.github.io/calculator/).
