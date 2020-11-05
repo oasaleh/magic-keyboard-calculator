@@ -1,6 +1,12 @@
+@font-face {
+   font-family: 'Digital-Calculator';
+   src: url('/resources/fonts/digital-7-webfont.woff2') format('woff2'),
+        url('/resources/fonts/digital-7-webfont.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
 *{
-   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+   font-family: -apple-system, BlinkMacSystemFont;
 }
 .segment-top {
    display: flex;
@@ -12,7 +18,6 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-
 }
 .calc-box {
    display: flex;
@@ -23,11 +28,24 @@
    background-color: #535150;
 }
 .calc-screen {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: stretch;
+   text-align: end;
    height: 90px;
    min-width: 300px;
    border: 1px solid black;
    border-radius: 8px;
    background-color: snow;
+}
+.screen {
+   flex-grow: 1;
+   line-height: 45px;
+   padding: 0px 8px;
+   font-size: 3em;
+   font-weight: 500;
+   font-family: 'Digital-Calculator';
 }
 .buttons-area {
    margin: 0.9em auto auto auto;
@@ -42,7 +60,6 @@
    row-gap: 7px;
    background-color: #535150;
    border-radius: 8px;
-
 }
 .button {
    /* padding: 15px 25px; */
@@ -56,7 +73,6 @@
    border: 1px solid #0f1011;
    border-radius: 8px ;
    box-shadow: 0 3px #0f1011;
-
 }
 .button:hover {background-color: #25282A}
 
@@ -70,7 +86,7 @@
    grid-column-end: 3;
 }
 .btn-16 {
-   font-size: 1em;
+   font-size: 0.9em;
    font-weight: 180;
    grid-column-start: 4;
    grid-column-end: 4;
@@ -81,6 +97,6 @@
    margin: 0;
 }
 .btn-1 {
-   font-size: 1em;
+   font-size: 0.9em;
    font-weight: 180;
 }
