@@ -101,7 +101,6 @@ function onClick (event) {
    }
    console.log(typeof(buttonValue))
 }
-
       // switch (numberOne) {
       //    case '':
       //       numberOne += buttonValue;
