@@ -1,11 +1,11 @@
-let numberOne = "";
-let numberTwo = "";
-let operator = "";
-let results = "";
-let upperDisplay = "";
-let bottomDisplay = "";
-let screenTop = "";
-clearScreen();
+let numberOne = null;
+let numberTwo = null;
+let operator = null;
+let results = null;
+let upperDisplay = null;
+let bottomDisplay = null;
+let screenTop = null;
+clearAll();
 
 // Operation function takes 2 numbers and a sign and determine the operation.
 function operate (numberOne, operator, numberTwo) {
@@ -51,7 +51,7 @@ document.addEventListener("keydown", onPress);
 // What happens when a button is clicked.
 function onClick (event) {
    const button = event.target;
-   const buttonValue = button.getAttribute("value");
+   let buttonValue = button.getAttribute("value");
    if (isNaN(buttonValue)) {
       switch (buttonValue) {
          case '=':
@@ -62,11 +62,13 @@ function onClick (event) {
             document.querySelector(".top").innerText = upperDisplay;
             bottomDisplay = results;
             document.querySelector(".bottom").innerText = bottomDisplay;
+            
+            
             // console.log(results)
             break;
          case 'clear':
          case 'Clear':
-            clearScreen ();
+            clearAll ();
             break;
          case '+':
          case '-':
@@ -76,22 +78,64 @@ function onClick (event) {
             upperDisplay = `${numberOne} ${operator}`
             document.querySelector(".top").innerText = upperDisplay;
             document.querySelector(".bottom").innerText = "";
-            // console.log(operator)
+            console.log(typeof(buttonValue))
          }
 
    } else {
-      document.querySelector(".bottom").innerText = buttonValue;
-      if (operator == "") {
+      buttonValue = Number(buttonValue);
+      if ((numberOne == "") && (numberTwo == "")) {
          numberOne += buttonValue;
+         numberOne = Number(numberOne);
+         document.querySelector(".bottom").innerText = numberOne;
          console.log(numberOne + " This is 1")
-      } else {
+      } else if ((numberTwo == "") && (typeof numberOne == 'number')) {
          numberTwo += buttonValue;
+         numberTwo = Number(numberTwo);
+         document.querySelector(".bottom").innerText = numberTwo;
          console.log(numberTwo+ " This is 2");
-      }
-      
+      }  else if (!isNaN(numberOne) && !isNaN(numberTwo)) {
+// here not going on here i think//
+         document.querySelector(".top").innerText = null;
+         numberOne += buttonValue;
+         document.querySelector(".bottom").innerText = numberOne;
    }
-
+   console.log(typeof(buttonValue))
 }
+
+      // switch (numberOne) {
+      //    case '':
+      //       numberOne += buttonValue;
+      //       document.querySelector(".bottom").innerText = numberOne;
+      //       console.log(numberOne + " This is 1")
+
+      //    case !isNaN:
+      //       numberTwo += buttonValue;
+      //       document.querySelector(".bottom").innerText = numberTwo;
+      //       console.log(numberTwo+ " This is 2");
+      }
+
+
+// if (operator == "") {
+//    numberOne += buttonValue;
+//    document.querySelector(".bottom").innerText = numberOne;
+//    console.log(numberOne + " This is 1")
+// } 
+// else if (isNaN (results)) {
+//    numberTwo += buttonValue;
+//    document.querySelector(".bottom").innerText = numberTwo;
+//    console.log(numberTwo+ " This is 2");
+// } 
+// else {
+//    clearDisplay ();
+//    numberOne += buttonValue;
+//    // numberTwo += buttonValue;
+//    // document.querySelector(".bottom").innerText = numberTwo;
+//    // console.log(numberTwo+ " This is 2");
+// }
+      
+   
+
+
 // What happens when a key on the keyboard is pressed = Exactly like when a button is clicked.
 function onPress (event) {
    // const buttonValue = event.key;
@@ -101,13 +145,18 @@ function onPress (event) {
 
 
 // Clear variables & sign selections.
-function clearScreen () {
+function clearAll () {
    numberOne = "";
    numberTwo = "";
    operator = "";
    results = "";
    upperDisplay = "";
    bottomDisplay = "";
+   document.querySelector(".top").innerText = "";
+   document.querySelector(".bottom").innerText = "";
+}
+
+function clearDisplay () {
    document.querySelector(".top").innerText = "";
    document.querySelector(".bottom").innerText = "";
 }

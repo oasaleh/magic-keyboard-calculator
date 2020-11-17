@@ -41,6 +41,7 @@
 }
 .screen {
    flex-grow: 1;
+   height: 50%;
    line-height: 45px;
    padding: 0px 8px;
    font-size: 3em;
