@@ -120,7 +120,7 @@ function onClick(event) {
     // if a number is clicked/pressed.
   } else {
     if (operator == "") {
-      reset();
+      // reset();
       document.querySelector(".top").innerText = "";
       numberOne += buttonValue;
       document.querySelector(".bottom").innerText = numberOne;
