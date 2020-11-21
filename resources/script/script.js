@@ -84,8 +84,14 @@ function onClick(event) {
           document.querySelector(".top").innerText = upperDisplay;
           document.querySelector(".bottom").innerText = "";
           break;
-        } else {
+        } else if (oldresults != "" && numberOne == "") {
           numberOne = oldresults;
+          operator = buttonValue;
+          upperDisplay = `${numberOne} ${operator}`;
+          document.querySelector(".top").innerText = upperDisplay;
+          document.querySelector(".bottom").innerText = "";
+          break;
+        } else {
           operator = buttonValue;
           upperDisplay = `${numberOne} ${operator}`;
           document.querySelector(".top").innerText = upperDisplay;
@@ -114,6 +120,7 @@ function onClick(event) {
     // if a number is clicked/pressed.
   } else {
     if (operator == "") {
+      reset();
       document.querySelector(".top").innerText = "";
       numberOne += buttonValue;
       document.querySelector(".bottom").innerText = numberOne;
