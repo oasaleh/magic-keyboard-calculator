@@ -62,7 +62,7 @@ function onClick(event) {
           break;
         } else {
           results = operate(numberOne, operator, numberTwo);
-          upperDisplay = `${numberOne} ${operator} ${numberTwo}`;
+          upperDisplay = `${Number(numberOne)} ${operator} ${Number(numberTwo)}`;
           document.querySelector(".top").innerText = upperDisplay;
           bottomDisplay = results;
           document.querySelector(".bottom").innerText = bottomDisplay;
@@ -78,22 +78,25 @@ function onClick(event) {
       case "-":
       case "/":
       case "*":
+        // First time choosing operator.
         if (oldresults == "") {
           operator = buttonValue;
-          upperDisplay = `${numberOne} ${operator}`;
+          upperDisplay = `${Number(numberOne)} ${operator}`;
           document.querySelector(".top").innerText = upperDisplay;
           document.querySelector(".bottom").innerText = "";
           break;
+          // After operation took place.
         } else if (oldresults != "" && numberOne == "") {
           numberOne = oldresults;
           operator = buttonValue;
-          upperDisplay = `${numberOne} ${operator}`;
+          upperDisplay = `${Number(numberOne)} ${operator}`;
           document.querySelector(".top").innerText = upperDisplay;
           document.querySelector(".bottom").innerText = "";
           break;
+          // clicking a number before operation and after a primary operation.
         } else {
           operator = buttonValue;
-          upperDisplay = `${numberOne} ${operator}`;
+          upperDisplay = `${Number(numberOne)} ${operator}`;
           document.querySelector(".top").innerText = upperDisplay;
           document.querySelector(".bottom").innerText = "";
           break;
@@ -120,14 +123,18 @@ function onClick(event) {
     // if a number is clicked/pressed.
   } else {
     if (operator == "") {
+      
       // reset();
       document.querySelector(".top").innerText = "";
       numberOne += buttonValue;
-      document.querySelector(".bottom").innerText = numberOne;
+      //hena zyada
+      document.querySelector(".bottom").innerText = Number(numberOne);
     } else if (operator != "" && results == "") {
       numberTwo += buttonValue;
-      numberOne = Number(numberOne);
-      document.querySelector(".bottom").innerText = numberTwo;
+      // numberOne = Number(numberOne);
+      //hena zyada
+      // numberTwo = Number(numberTwo);
+      document.querySelector(".bottom").innerText = Number(numberTwo);
     }
   }
 }
@@ -136,6 +143,11 @@ function onPress(event) {
   // const buttonValue = event.key;
   // console.log(buttonValue)
   // numberOne = buttonValue;
+}
+
+// Input function
+function processCalculatorInput (input) {
+  
 }
 // Clear variables & sign selections.
 function clearAll() {
