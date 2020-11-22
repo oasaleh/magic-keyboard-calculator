@@ -52,7 +52,17 @@ document.addEventListener("keydown", onPress);
 // What happens when a button is clicked.
 function onClick(event) {
   const button = event.target;
-  let buttonValue = button.getAttribute("value");
+  const buttonValue = button.getAttribute("value");
+  processCalculatorInput(buttonValue);
+}
+// What happens when a key on the keyboard is pressed = Exactly like when a button is clicked.
+function onPress(event) {
+  const buttonValue = event.key;
+  processCalculatorInput(buttonValue);
+}
+
+// Input function
+function processCalculatorInput(buttonValue) {
   if (isNaN(buttonValue)) {
     switch (buttonValue) {
       case "=":
@@ -62,7 +72,9 @@ function onClick(event) {
           break;
         } else {
           results = operate(numberOne, operator, numberTwo);
-          upperDisplay = `${Number(numberOne)} ${operator} ${Number(numberTwo)}`;
+          upperDisplay = `${Number(numberOne)} ${operator} ${Number(
+            numberTwo
+          )}`;
           document.querySelector(".top").innerText = upperDisplay;
           bottomDisplay = results;
           document.querySelector(".bottom").innerText = bottomDisplay;
@@ -107,11 +119,17 @@ function onClick(event) {
           if (numberOne.includes(".")) {
             break;
           } else {
+            if (numberOne == "") {
+              numberOne = "0"
+            }
             numberOne += buttonValue;
             document.querySelector(".top").innerText = "";
             document.querySelector(".bottom").innerText = numberOne;
           }
         } else {
+          if (numberTwo == "") {
+            numberTwo = "0";
+          }
           if (numberTwo.includes(".")) {
             break;
           } else {
@@ -123,31 +141,19 @@ function onClick(event) {
     // if a number is clicked/pressed.
   } else {
     if (operator == "") {
-      
       // reset();
       document.querySelector(".top").innerText = "";
       numberOne += buttonValue;
       //hena zyada
-      document.querySelector(".bottom").innerText = Number(numberOne);
+      document.querySelector(".bottom").innerText = numberOne;
     } else if (operator != "" && results == "") {
       numberTwo += buttonValue;
       // numberOne = Number(numberOne);
       //hena zyada
       // numberTwo = Number(numberTwo);
-      document.querySelector(".bottom").innerText = Number(numberTwo);
+      document.querySelector(".bottom").innerText = numberTwo;
     }
   }
-}
-// What happens when a key on the keyboard is pressed = Exactly like when a button is clicked.
-function onPress(event) {
-  // const buttonValue = event.key;
-  // console.log(buttonValue)
-  // numberOne = buttonValue;
-}
-
-// Input function
-function processCalculatorInput (input) {
-  
 }
 // Clear variables & sign selections.
 function clearAll() {
