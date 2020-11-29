@@ -68,7 +68,7 @@ function processCalculatorInput(buttonValue) {
       case "=":
       case "enter":
       case "Enter":
-        if (numberOne == "") {
+        if ((numberOne == "") || (numberTwo =="")) {
           break;
         } else {
           results = operate(numberOne, operator, numberTwo);
@@ -90,14 +90,14 @@ function processCalculatorInput(buttonValue) {
       case "-":
       case "/":
       case "*":
-        // First time choosing operator.
-        if (oldresults == "") {
+        // First time choosing operator. Regular
+        if (oldresults == "" && numberTwo == "") {
           operator = buttonValue;
           upperDisplay = `${Number(numberOne)} ${operator}`;
           document.querySelector(".top").innerText = upperDisplay;
           document.querySelector(".bottom").innerText = "";
           break;
-          // After operation took place.
+          // After operation took place = After clicking =.
         } else if (oldresults != "" && numberOne == "") {
           numberOne = oldresults;
           operator = buttonValue;
@@ -105,6 +105,19 @@ function processCalculatorInput(buttonValue) {
           document.querySelector(".top").innerText = upperDisplay;
           document.querySelector(".bottom").innerText = "";
           break;
+          //If sign is pressed after the 2nd number
+        } else if (numberTwo != "" && numberOne != "") {
+          results = operate(numberOne, operator, numberTwo);
+          numberOne = results;
+          operator = buttonValue;
+          upperDisplay = `${Number(numberOne)} ${operator}`;
+          document.querySelector(".top").innerText = upperDisplay;
+          document.querySelector(".bottom").innerText = "";
+          buttonValue ="";
+          numberTwo="";
+          
+          break;
+        
           // clicking a number before operation and after a primary operation.
         } else {
           operator = buttonValue;
@@ -140,18 +153,22 @@ function processCalculatorInput(buttonValue) {
     }
     // if a number is clicked/pressed.
   } else {
+    //First time clicking a number.
     if (operator == "") {
-      // reset();
       document.querySelector(".top").innerText = "";
       numberOne += buttonValue;
-      //hena zyada
       document.querySelector(".bottom").innerText = numberOne;
+      buttonValue ="";
+    //Clicking on the second number.
     } else if (operator != "" && results == "") {
       numberTwo += buttonValue;
-      // numberOne = Number(numberOne);
-      //hena zyada
-      // numberTwo = Number(numberTwo);
       document.querySelector(".bottom").innerText = numberTwo;
+      buttonValue ="";
+    } else {
+      
+      numberTwo += buttonValue;
+      document.querySelector(".bottom").innerText = numberTwo;
+      buttonValue ="";
     }
   }
 }
