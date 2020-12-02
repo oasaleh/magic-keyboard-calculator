@@ -1,113 +1,113 @@
 @font-face {
-   font-family: 'Digital-Calculator';
-   src: url('Digital-Calculator.woff2') format('woff2'),
-        url('Digital-Calculator.woff') format('woff');
-   font-weight: normal;
-   font-style: normal;
+  font-family: "Digital-Calculator";
+  src: url("Digital-Calculator.woff2") format("woff2"),
+    url("Digital-Calculator.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-*{
-   font-family: -apple-system, BlinkMacSystemFont;
-   
+* {
+  font-family: -apple-system, BlinkMacSystemFont;
 }
 .segment-top {
-   display: flex;
-   padding: 1.5em;
-   flex-direction: column;
-   justify-content: center;
-   text-align: center;
-   min-height: 1em;
+  display: flex;
+  padding: 1.5em;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-height: 1em;
 }
 .segment-middle {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .calc-box {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding: 1em 1em;
-   border-radius: 15px;
-   background-color: #535150;
-   border: 0.8px solid #0f1011;
-   box-shadow: 0.5px 0.8px #0f1011;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 1em;
+  border-radius: 15px;
+  background-color: #535150;
+  border: 0.8px solid #0f1011;
+  box-shadow: 0.5px 0.8px #0f1011;
 }
 .calc-screen {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   align-items: stretch;
-   text-align: end;
-   height: 90px;
-   min-width: 300px;
-   max-width: 300px;
-   border: 1px solid black;
-   border-radius: 8px;
-   background-color: snow;
-   font-family: 'Digital-Calculator';
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  text-align: end;
+  height: 90px;
+  min-width: 300px;
+  max-width: 300px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: snow;
+  font-family: "Digital-Calculator";
 }
 .screen {
-   flex-grow: 1;
-   height: 50%;
-   line-height: 45px;
-   padding: 0px 8px;
-   font-size: 3em;
-   font-weight: 500;
-   font-family: 'Digital-Calculator';
+  flex-grow: 1;
+  height: 50%;
+  line-height: 45px;
+  padding: 0px 8px;
+  font-size: 3em;
+  font-weight: 500;
+  font-family: "Digital-Calculator";
 }
 .buttons-area {
-   margin: 0.9em auto auto auto;
-   width: 100%;
-   height: 350px;
-   display: grid;
-   justify-content: stretch;
-   align-content: stretch;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
-   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-   column-gap: 7px;
-   row-gap: 7px;
-   background-color: #535150;
-   border-radius: 8px;
+  margin: 0.9em auto auto auto;
+  width: 100%;
+  height: 350px;
+  display: grid;
+  justify-content: stretch;
+  align-content: stretch;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 7px;
+  row-gap: 7px;
+  background-color: #535150;
+  border-radius: 8px;
 }
 .button {
-   /* padding: 15px 25px; */
-   font-size: 1.3em;
-   font-weight: 200;
-   text-align: center;
-   cursor: pointer;
-   outline: none;
-   color: #fff;
-   background-color: #25282A;
-   border: 1px solid #0f1011;
-   border-radius: 8px ;
-   box-shadow: 0 3px #0f1011;
+  /* padding: 15px 25px; */
+  font-size: 1.3em;
+  font-weight: 200;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #25282a;
+  border: 1px solid #0f1011;
+  border-radius: 8px;
+  box-shadow: 0 3px #0f1011;
 }
-.button:hover {background-color: #2b2c2c;}
+.button:hover {
+  background-color: #2b2c2c;
+}
 
 .button:active {
-  background-color: #25282A;
+  background-color: #25282a;
   transform: translateY(3px);
   box-shadow: 0 -1.5px #0f1011;
 }
 .btn-17 {
-   grid-column-start: 1;
-   grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 /* Enter button */
 .btn-16 {
-   font-size: 0.9em;
-   font-weight: 180;
-   grid-column-start: 4;
-   grid-column-end: 4;
-   grid-row-start: 4;
-   grid-row-end: 6;
-   line-height: 0px;
-   padding-top: 150%;
-   margin: 0;
-   vertical-align: baseline;
+  font-size: 0.9em;
+  font-weight: 180;
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 6;
+  line-height: 0px;
+  padding-top: 150%;
+  margin: 0;
+  vertical-align: baseline;
 }
 .btn-1 {
-   font-size: 0.9em;
-   font-weight: 180;
+  font-size: 0.9em;
+  font-weight: 180;
 }

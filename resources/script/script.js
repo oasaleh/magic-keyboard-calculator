@@ -68,7 +68,7 @@ function processCalculatorInput(buttonValue) {
       case "=":
       case "enter":
       case "Enter":
-        if ((numberOne == "") || (numberTwo =="")) {
+        if (numberOne == "" || numberTwo == "") {
           break;
         } else {
           results = operate(numberOne, operator, numberTwo);
@@ -113,11 +113,11 @@ function processCalculatorInput(buttonValue) {
           upperDisplay = `${Number(numberOne)} ${operator}`;
           document.querySelector(".top").innerText = upperDisplay;
           document.querySelector(".bottom").innerText = "";
-          buttonValue ="";
-          numberTwo="";
-          
+          buttonValue = "";
+          numberTwo = "";
+
           break;
-        
+
           // clicking a number before operation and after a primary operation.
         } else {
           operator = buttonValue;
@@ -133,7 +133,7 @@ function processCalculatorInput(buttonValue) {
             break;
           } else {
             if (numberOne == "") {
-              numberOne = "0"
+              numberOne = "0";
             }
             numberOne += buttonValue;
             document.querySelector(".top").innerText = "";
@@ -158,17 +158,16 @@ function processCalculatorInput(buttonValue) {
       document.querySelector(".top").innerText = "";
       numberOne += buttonValue;
       document.querySelector(".bottom").innerText = numberOne;
-      buttonValue ="";
-    //Clicking on the second number.
+      buttonValue = "";
+      //Clicking on the second number.
     } else if (operator != "" && results == "") {
       numberTwo += buttonValue;
       document.querySelector(".bottom").innerText = numberTwo;
-      buttonValue ="";
+      buttonValue = "";
     } else {
-      
       numberTwo += buttonValue;
       document.querySelector(".bottom").innerText = numberTwo;
-      buttonValue ="";
+      buttonValue = "";
     }
   }
 }
