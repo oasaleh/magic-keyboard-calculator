@@ -7,12 +7,15 @@
 }
 *{
    font-family: -apple-system, BlinkMacSystemFont;
+   
 }
 .segment-top {
    display: flex;
+   padding: 1.5em;
    flex-direction: column;
-   align-items: center;
-   min-height: 10em;
+   justify-content: center;
+   text-align: center;
+   min-height: 1em;
 }
 .segment-middle {
    display: flex;
@@ -24,8 +27,10 @@
    flex-direction: column;
    align-items: center;
    padding: 1em 1em;
-   border-radius: 8px;
+   border-radius: 15px;
    background-color: #535150;
+   border: 0.8px solid #0f1011;
+   box-shadow: 0.5px 0.8px #0f1011;
 }
 .calc-screen {
    display: flex;
@@ -78,7 +83,7 @@
    border-radius: 8px ;
    box-shadow: 0 3px #0f1011;
 }
-.button:hover {background-color: #25282A}
+.button:hover {background-color: #2b2c2c;}
 
 .button:active {
   background-color: #25282A;
@@ -89,6 +94,7 @@
    grid-column-start: 1;
    grid-column-end: 3;
 }
+/* Enter button */
 .btn-16 {
    font-size: 0.9em;
    font-weight: 180;
@@ -97,8 +103,9 @@
    grid-row-start: 4;
    grid-row-end: 6;
    line-height: 0px;
-   padding-top: 99%;
+   padding-top: 150%;
    margin: 0;
+   vertical-align: baseline;
 }
 .btn-1 {
    font-size: 0.9em;
