@@ -13,13 +13,13 @@ function operate(numberOne, operator, numberTwo) {
   numberOne = Number(numberOne);
   numberTwo = Number(numberTwo);
   switch (operator) {
-    case "+":
+    case '+':
       return add(numberOne, numberTwo);
-    case "-":
+    case '-':
       return subtract(numberOne, numberTwo);
-    case "*":
+    case '*':
       return multiply(numberOne, numberTwo);
-    case "/":
+    case '/':
       return divide(numberOne, numberTwo);
   }
 }
@@ -39,20 +39,20 @@ function divide(m, n) {
 }
 
 // Selecting all buttons (with class 'button'.)
-const buttons = document.querySelectorAll(".button");
+const buttons = document.querySelectorAll('.button');
 
 // Going over each element in the node list "buttons" and adding click event listener.
 for (let button of buttons) {
-  button.addEventListener("click", onClick);
+  button.addEventListener('click', onClick);
 }
 // Adding keyboard event listener when a key is pressed. The event listener is added to
 // to the document. Otherwise it won't be initialized.
-document.addEventListener("keydown", onPress);
+document.addEventListener('keydown', onPress);
 
 // What happens when a button is clicked.
 function onClick(event) {
   const button = event.target;
-  const buttonValue = button.getAttribute("value");
+  const buttonValue = button.getAttribute('value');
   processCalculatorInput(buttonValue);
 }
 // What happens when a key on the keyboard is pressed = Exactly like when a button is clicked.
@@ -65,56 +65,56 @@ function onPress(event) {
 function processCalculatorInput(buttonValue) {
   if (isNaN(buttonValue)) {
     switch (buttonValue) {
-      case "=":
-      case "enter":
-      case "Enter":
-        if (numberOne == "" || numberTwo == "") {
+      case '=':
+      case 'enter':
+      case 'Enter':
+        if (numberOne == '' || numberTwo == '') {
           break;
         } else {
-          results = operate(numberOne, operator, numberTwo);
+          results = Math.round(operate(numberOne, operator, numberTwo)* 10000)/10000;
           upperDisplay = `${Number(numberOne)} ${operator} ${Number(
             numberTwo
           )}`;
-          document.querySelector(".top").innerText = upperDisplay;
+          document.querySelector('.top').innerText = upperDisplay;
           bottomDisplay = results;
-          document.querySelector(".bottom").innerText = bottomDisplay;
+          document.querySelector('.bottom').innerText = bottomDisplay;
           oldresults = results;
           reset();
           break;
         }
-      case "clear":
-      case "Clear":
+      case 'clear':
+      case 'Clear':
         clearAll();
         break;
-      case "+":
-      case "-":
-      case "/":
-      case "*":
+      case '+':
+      case '-':
+      case '/':
+      case '*':
         // First time choosing operator. Regular
-        if (oldresults == "" && numberTwo == "") {
+        if (oldresults == '' && numberTwo == '') {
           operator = buttonValue;
           upperDisplay = `${Number(numberOne)} ${operator}`;
-          document.querySelector(".top").innerText = upperDisplay;
-          document.querySelector(".bottom").innerText = "";
+          document.querySelector('.top').innerText = upperDisplay;
+          document.querySelector('.bottom').innerText = '';
           break;
           // After operation took place = After clicking =.
-        } else if (oldresults != "" && numberOne == "") {
+        } else if (oldresults != '' && numberOne == '') {
           numberOne = oldresults;
           operator = buttonValue;
           upperDisplay = `${Number(numberOne)} ${operator}`;
-          document.querySelector(".top").innerText = upperDisplay;
-          document.querySelector(".bottom").innerText = "";
+          document.querySelector('.top').innerText = upperDisplay;
+          document.querySelector('.bottom').innerText = '';
           break;
           //If sign is pressed after the 2nd number
-        } else if (numberTwo != "" && numberOne != "") {
+        } else if (numberTwo != '' && numberOne != '') {
           results = operate(numberOne, operator, numberTwo);
           numberOne = results;
           operator = buttonValue;
           upperDisplay = `${Number(numberOne)} ${operator}`;
-          document.querySelector(".top").innerText = upperDisplay;
-          document.querySelector(".bottom").innerText = "";
-          buttonValue = "";
-          numberTwo = "";
+          document.querySelector('.top').innerText = upperDisplay;
+          document.querySelector('.bottom').innerText = '';
+          buttonValue = '';
+          numberTwo = '';
 
           break;
 
@@ -122,74 +122,74 @@ function processCalculatorInput(buttonValue) {
         } else {
           operator = buttonValue;
           upperDisplay = `${Number(numberOne)} ${operator}`;
-          document.querySelector(".top").innerText = upperDisplay;
-          document.querySelector(".bottom").innerText = "";
+          document.querySelector('.top').innerText = upperDisplay;
+          document.querySelector('.bottom').innerText = '';
           break;
         }
 
-      case ".":
-        if (operator == "") {
-          if (numberOne.includes(".")) {
+      case '.':
+        if (operator == '') {
+          if (numberOne.includes('.')) {
             break;
           } else {
-            if (numberOne == "") {
-              numberOne = "0";
+            if (numberOne == '') {
+              numberOne = '0';
             }
             numberOne += buttonValue;
-            document.querySelector(".top").innerText = "";
-            document.querySelector(".bottom").innerText = numberOne;
+            document.querySelector('.top').innerText = '';
+            document.querySelector('.bottom').innerText = numberOne;
           }
         } else {
-          if (numberTwo == "") {
-            numberTwo = "0";
+          if (numberTwo == '') {
+            numberTwo = '0';
           }
-          if (numberTwo.includes(".")) {
+          if (numberTwo.includes('.')) {
             break;
           } else {
             numberTwo += buttonValue;
-            document.querySelector(".bottom").innerText = numberTwo;
+            document.querySelector('.bottom').innerText = numberTwo;
           }
         }
     }
     // if a number is clicked/pressed.
   } else {
     //First time clicking a number.
-    if (operator == "") {
-      document.querySelector(".top").innerText = "";
+    if (operator == '') {
+      document.querySelector('.top').innerText = '';
       numberOne += buttonValue;
-      document.querySelector(".bottom").innerText = numberOne;
-      buttonValue = "";
+      document.querySelector('.bottom').innerText = numberOne;
+      buttonValue = '';
       //Clicking on the second number.
-    } else if (operator != "" && results == "") {
+    } else if (operator != '' && results == '') {
       numberTwo += buttonValue;
-      document.querySelector(".bottom").innerText = numberTwo;
-      buttonValue = "";
+      document.querySelector('.bottom').innerText = numberTwo;
+      buttonValue = '';
     } else {
       numberTwo += buttonValue;
-      document.querySelector(".bottom").innerText = numberTwo;
-      buttonValue = "";
+      document.querySelector('.bottom').innerText = numberTwo;
+      buttonValue = '';
     }
   }
 }
 // Clear variables & sign selections.
 function clearAll() {
-  numberOne = "";
-  numberTwo = "";
-  operator = "";
-  results = "";
-  oldresults = "";
-  upperDisplay = "";
-  bottomDisplay = "";
-  document.querySelector(".top").innerText = "";
-  document.querySelector(".bottom").innerText = "";
+  numberOne = '';
+  numberTwo = '';
+  operator = '';
+  results = '';
+  oldresults = '';
+  upperDisplay = '';
+  bottomDisplay = '';
+  document.querySelector('.top').innerText = '';
+  document.querySelector('.bottom').innerText = '';
 }
 function clearDisplay() {
-  document.querySelector(".top").innerText = "";
-  document.querySelector(".bottom").innerText = "";
+  document.querySelector('.top').innerText = '';
+  document.querySelector('.bottom').innerText = '';
 }
 function reset() {
-  numberOne = "";
-  numberTwo = "";
-  results = "";
-  operator = "";
+  numberOne = '';
+  numberTwo = '';
+  results = '';
+  operator = '';
 }
