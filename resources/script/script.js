@@ -57,8 +57,20 @@ function onClick(event) {
 }
 // What happens when a key on the keyboard is pressed = Exactly like when a button is clicked.
 function onPress(event) {
+  console.log(event.key);
+  const buttonID = event.key;
+  const pressedButton = document.getElementById(buttonID);
+  pressedButton.classList.add('activeButton');
+  onKeyup(event);
   const buttonValue = event.key;
   processCalculatorInput(buttonValue);
+}
+function onKeyup(event) {
+  setTimeout(() => {
+    const buttonID = event.key;
+    const pressedButton = document.getElementById(buttonID);
+    pressedButton.classList.remove('activeButton');
+  }, 80);
 }
 
 // Input function
@@ -71,7 +83,8 @@ function processCalculatorInput(buttonValue) {
         if (numberOne == '' || numberTwo == '') {
           break;
         } else {
-          results = Math.round(operate(numberOne, operator, numberTwo)* 10000)/10000;
+          results =
+            Math.round(operate(numberOne, operator, numberTwo) * 10000) / 10000;
           upperDisplay = `${Number(numberOne)} ${operator} ${Number(
             numberTwo
           )}`;
