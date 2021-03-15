@@ -6,4 +6,4 @@ This calculator resembles Apple's Magic Keyboard numpad in Space Grey.
 Click [here](https://captaincustard.github.io/calculator/) to use **Magic Keyboard Calculator**.
 
 ## Feedback
-Please send me any critique of the code or design. I am  always thrilled to learn a better way to put down my ideas.
+Critique of the code or thoughts on the design are immensely appreciated. Feel free to open an issue!
