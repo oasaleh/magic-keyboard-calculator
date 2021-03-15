@@ -1,6 +1,6 @@
 # Magic Keyboard Calculator
 
-This keyboard resembles Apple's Magic Keyboard numpad in Space Grey.
+This calculator resembles Apple's Magic Keyboard numpad in Space Grey.
 
 ## Demo
 Click [here](https://captaincustard.github.io/calculator/) to use **Magic Keyboard Calculator**.
